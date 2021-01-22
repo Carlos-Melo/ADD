@@ -9,5 +9,5 @@
 
 #### Versão Mobile:
 
-![telaMobile_add (2)](https://user-images.githubusercontent.com/64552780/105459934-cc123980-5c69-11eb-828b-c05ab35c6228.png) ![telaMobile_add (3)](https://user-images.githubusercontent.com/64552780/105459937-ccaad000-5c69-11eb-9f6e-fe6bafe73761.png) ![telaMobile_add](https://user-images.githubusercontent.com/64552780/105459940-cd436680-5c69-11eb-9c35-1993699fbd22.png)
+![telaMobile_add](https://user-images.githubusercontent.com/64552780/105459940-cd436680-5c69-11eb-9c35-1993699fbd22.png)  ![telaMobile_add (2)](https://user-images.githubusercontent.com/64552780/105459934-cc123980-5c69-11eb-828b-c05ab35c6228.png)   ![telaMobile_add (3)](https://user-images.githubusercontent.com/64552780/105459937-ccaad000-5c69-11eb-9f6e-fe6bafe73761.png)
 
