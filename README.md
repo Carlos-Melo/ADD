@@ -1,6 +1,6 @@
 # ADD
  Gerenciar Informações Pessoais
-* [CRUD(Create, Read, Update and Delete) gerenciado de informações pessoais, tais como: Nome, Sobrenome, Email, CPF e Telefone.]
+* [CRUD(Create, Read, Update and Delete) gerenciador de informações pessoais, tais como: Nome, Sobrenome, Email, CPF e Telefone.]
 * [Dados salvos no localStorage.]
 
 #### Versão Desktop:
