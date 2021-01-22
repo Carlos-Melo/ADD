@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="jquery-3.5.1.min.js"></script>
     <title>ADD</title>
 </head>
 <body>
@@ -14,30 +16,31 @@
         
         <div class="area-info">
             <table>
-                <tr>
-                    <th></th>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                    <th>Telefone</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td><img src="images/icon-user.png" id="img-user" width="40" height="40"/></td>
-                    <td>Carlos</td>
-                    <td>Eduardo</td>
-                    <td>carloszdu@gmail.com</td>
-                    <td>000.000.000-00</td>
-                    <td>(81) 98698-7034</td>
-                </tr>
-
-            </table>    
-        
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody  class="table-add">
+                
+                </tbody>
+            </table> 
         </div>
-        
         <div class="area-add">
-            <div id="warn"></div>
+            <div id="warn">
+                <div class="warn-edit">
+                </div>
+                <div>
+                    <i class="fa fa-window-close" id="close"></i>
+                </div>
+            </div>
             <form>
                 <div>
                     <label for="name">Nome:</label><br>
@@ -53,17 +56,46 @@
                 </div>
                 <div>
                     <label for="cpf">CPF:</label><br>
-                    <input type="" name="cpf" id="cpf">
+                    <input type="" name="cpf" id="cpf" maxlength="14">
                 </div>
                 <div>   
                     <label for="numb">Telefone:</label><br>
-                    <input type="tel" name="numb" id="numb">
+                    <input type="tel" name="numb" id="numb" maxlength="15">
                 </div>
-                <div style="text-align: center;">  
-                    <button type="submit">ADD</button>
+                
+                <label for="photo"><i class="fa fa-image" style="font-size: 35px;"></i></label>
+                <input type="file" name="photo" id="photo" style="display: none;">
+                
+                
+                <div style="text-align: center;" id="addButton">  
+                    <button type="button" onclick="add()">ADD</button>
+                </div>
+                <div id="editButton">  
+                    <button type="button">Editar</button>
+                </div>
+                <div id="cancelButton">  
+                    <button type="button">Cancelar</button>
                 </div>
             </form>
         </div>
-    
+        
+        
+        <!-- Poup area -->
+        <div class="warn-del" id="warn-del">
+            <i class="fa fa-trash" id="trash"></i>
+            <div class="warn-del-text">
+                Tem certeza que deseja excluir?
+            </div>
+            <div>
+                <button id="yes">Sim</button>
+                <button id="no">Não</button>
+            </div>
+        </div>
+        <div id="overlay"></div>
+        <div>
+            <i class="fa fa-plus-circle" id="add"></i>
+        </div>
+
+        <script src="js/main.js"></script>
 </body>
 </html>
