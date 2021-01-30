@@ -6,18 +6,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="jquery-3.5.1.min.js"></script>
     <title>ADD</title>
 </head>
 <body>
     <header>
         <h2>ADD+</h2>
     </header>
-        
+    <main>   
         <div class="area-info">
             <table>
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th></th>
                         <th>Nome</th>
                         <th>Sobrenome</th>
@@ -68,7 +68,7 @@
                 
                 
                 <div style="text-align: center;" id="addButton">  
-                    <button type="button" onclick="add()">ADD</button>
+                    <button type="button">ADD</button>
                 </div>
                 <div id="editButton">  
                     <button type="button">Editar</button>
@@ -78,7 +78,7 @@
                 </div>
             </form>
         </div>
-        
+    </main>    
         
         <!-- Poup area -->
         <div class="warn-del" id="warn-del">
@@ -96,6 +96,6 @@
             <i class="fa fa-plus-circle" id="add"></i>
         </div>
 
-        <script src="js/main.js"></script>
+        <script src="bundle.js"></script>
 </body>
 </html>

@@ -13,10 +13,13 @@ header{
     padding: 10px 15px;
     font-family: sans-serif;
 }
+main{
+    display: flex;
+    justify-content: center;
+}
 .area-info{
     width: 65%;
     height: auto;
-    float: left;
     overflow-x: auto;
     border: 1px solid #e0e0e0;
     box-shadow: 0px 0px 5px -3px black;
@@ -24,9 +27,8 @@ header{
     color: #616161;
 }
 .area-add{
-    width: 31%;
+    width: 350px;
     height: auto;
-    float: right;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     box-shadow: 0px 0px 5px -3px black;
@@ -58,7 +60,7 @@ form{
       color:#CD8D00;
 }
 span{
-    font-size:1.2vw;
+    font-size:0.9vw;
     margin: 5px;
 }
 form > div{
@@ -73,6 +75,7 @@ input{
 }
 input:focus{
     border-color: #5981e3;
+    outline: none;
 }
 
 #editButton > button{
@@ -212,7 +215,7 @@ td > i{
     }
 
     span{
-        font-size:12px;
         margin: 5px;
+        font-size: 12px;
     }
 }
