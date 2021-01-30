@@ -197,6 +197,8 @@ function maskInput(){
     })
 }
 
+maskInput()
+
 let no = document.querySelector("#no").onclick = () => warnDel.style.display = "none"
 let add = document.querySelector("#add").onclick = () => areaAdd.style.display = "block"
 let close = document.querySelector("#close").onclick = () => areaAdd.style.display = "none"
