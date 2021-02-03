@@ -3,6 +3,7 @@ let lastname = document.querySelector("#lastname")
 let email = document.querySelector("#email")
 let cpf = document.querySelector("#cpf")
 let numb = document.querySelector("#numb")
+let inputPhoto = document.querySelector("input[type='file'")
 let tableAdd = document.querySelector(".table-add")
 let areaAdd = document.querySelector(".area-add")
 let warnEdit = document.querySelector(".warn-edit")
@@ -69,10 +70,11 @@ function renderizarPessoas(){
 
 renderizarPessoas()
 
-addButton.onclick = function add(){
+addButton.onclick = function add(photo){
     //Veifica se todos os campos foram preenchidos e SE UM ficar vario mostra mensagem de que nem todos foram preenchidos
     if(nome.value == "" || lastname.value == "" || email.value == "" || cpf.value == "" || numb.value == ""){
-        warnEdit.style.background = "rgba(255, 255, 0, 0.4)"
+        warnEdit.style.background = "#5981e3"
+        warnEdit.style.borderRadius = "5px 5px 0px 0px"
         warnEdit.innerHTML = `<i class="fa fa-exclamation-triangle" id="triangle-warn"><span>[AVISO] Nem todos os dados foram preenchidos!</span></i>`
     }else{
         warnEdit.innerHTML = ""
@@ -83,6 +85,7 @@ addButton.onclick = function add(){
     }else{
         persons.push({
             ids: id,
+            photos: photo,
             names: nome.value,
             lastnames: lastname.value,
             emails: email.value,
@@ -96,7 +99,6 @@ addButton.onclick = function add(){
 
     clear()
 }
-
 //Limpa os valores do input
 function clear(){
     nome.value = ""
