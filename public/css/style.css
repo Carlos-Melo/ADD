@@ -17,6 +17,9 @@ main{
     display: flex;
     justify-content: center;
 }
+#img-user{
+    border-radius: 20px;
+}
 .area-info{
     width: 65%;
     height: auto;
@@ -55,6 +58,10 @@ form{
     float: right;
     margin: 5px 5px;
     display: none;
+}
+.warn-edit{
+    background-color: #5981e3;
+    border-radius: 5px 5px 0px 0px;
 }
 #triangle-warn{
       font-size: 20px;
@@ -116,11 +123,6 @@ td, th{
 i{
     cursor: pointer;
 }
-
-.fa-image{
-    margin: 15px;
-}
-
 /* Popup Area*/
 .warn-del{
     width: 350px;

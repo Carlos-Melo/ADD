@@ -12,6 +12,7 @@ let addButton = document.querySelector("#addButton")
 let bntEdit = document.querySelector("#editButton > button")
 let bntCancel = document.querySelector("#cancelButton > button")
 let id = 1
+let input = document.querySelector('input[type="file"]')
 
 var persons = JSON.parse(localStorage.getItem("person")) || []
 
@@ -44,7 +45,7 @@ function renderizarPessoas(){
         tableAdd.appendChild(tr)
         //Adicionar estrutura de elementos <td> no elemento <tr>
         tr.innerHTML = ` <td>${id+i}</td>
-        <td><img src="images/icon-user.png" id="img-user" width="40" height="40"/></td>
+        <td><img src="${persons[i].photos}" id="img-user" width="40" height="40"/></td>
         <td>${persons[i].names}</td> 
         <td>${persons[i].lastnames}</td>
         <td>${persons[i].emails}</td>
@@ -70,18 +71,48 @@ function renderizarPessoas(){
 
 renderizarPessoas()
 
-addButton.onclick = function add(photo){
+function teste(callback){
+        const reader = new FileReader()
+        let file = input.files[0]
+        if(file != undefined){
+            if(file.type.match('image.*')){
+                reader.readAsDataURL(file)
+                reader.onload = () =>{
+                callback(reader.result)
+                }
+            }else{
+                warnEdit.innerHTML = `<i class="fa fa-exclamation-triangle" id="triangle-warn"><span>[AVISO] São aceitos apenas imagens!</span></i>`
+            }
+        }else{
+            let photo = "images/icon-user.png"
+            callback(photo)
+        }
+        input.value = ""
+}
+
+addButton.onclick = () =>{
+    teste((imageFile) =>{
+        addBnt(imageFile)
+    })
+}
+
+function addBnt(photo){
     //Veifica se todos os campos foram preenchidos e SE UM ficar vario mostra mensagem de que nem todos foram preenchidos
     if(nome.value == "" || lastname.value == "" || email.value == "" || cpf.value == "" || numb.value == ""){
-        warnEdit.style.background = "#5981e3"
-        warnEdit.style.borderRadius = "5px 5px 0px 0px"
         warnEdit.innerHTML = `<i class="fa fa-exclamation-triangle" id="triangle-warn"><span>[AVISO] Nem todos os dados foram preenchidos!</span></i>`
+        setTimeout( () =>{
+            warnEdit.innerHTML = ""
+        }, 5000)  
     }else{
         warnEdit.innerHTML = ""
     }
+
     //Verifica se todos foram preenchidos e SE TODOS forem vazios mostra uma mensagem de erro para preencher pelo menos um campo
     if(nome.value == "" & lastname.value == "" & email.value == "" & cpf.value == "" & numb.value == ""){
         warnEdit.innerHTML = `<i class="fa fa-exclamation-triangle" id="triangle-warn"><span>[AVISO] Preencha pelo menos um campo!</span></i>`
+        setTimeout( () =>{
+            warnEdit.innerHTML = ""
+        }, 5000)
     }else{
         persons.push({
             ids: id,
@@ -143,6 +174,7 @@ function edit(id){
     email.value = persons[i].emails
     cpf.value = persons[i].cpfs
     numb.value = persons[i].numbs
+    let file = persons[i].photos
 
     areaAdd.style.display = "block"
     bntCancel.style.display = "block"
@@ -158,10 +190,18 @@ function edit(id){
             persons[i].emails = email.value
             persons[i].cpfs = cpf.value
             persons[i].numbs = numb.value
+            teste((imageFile) =>{
+                if(imageFile == "images/icon-user.png"){
+                    persons[i].photos = file
+                }else{
+                    let photo = imageFile
+                    persons[i].photos = photo
+                } 
+                renderizarPessoas()
+            })
         }
-        warnEdit.innerHTML = ""
-        clear()
 
+        warnEdit.innerHTML = ""
         bntEdit.style.display = "none"
         bntCancel.style.display = "none"
         addButton.style.display = "block"
@@ -169,15 +209,17 @@ function edit(id){
         renderizarPessoas()
 
         salvaDados()
+
+        clear()
     }
     
     bntCancel.onclick = function(){
         warnEdit.innerHTML = ""
-        clear()
-
         bntEdit.style.display = "none"
         bntCancel.style.display = "none"
         addButton.style.display = "block"
+
+        clear()
     }
 }
 
