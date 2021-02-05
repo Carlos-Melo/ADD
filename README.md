@@ -5,7 +5,7 @@
 
 #### Versão Desktop:
 
-![Desktop_ADD](https://user-images.githubusercontent.com/64552780/106695534-91899480-65b9-11eb-9594-c813daca60ff.png)
+![Desktop_ADD](https://user-images.githubusercontent.com/64552780/106979214-9cb8fd80-673c-11eb-917f-724544230c6a.png)
 
 #### Versão Mobile:
 
